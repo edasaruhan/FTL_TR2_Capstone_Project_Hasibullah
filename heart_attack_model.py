@@ -35,11 +35,12 @@ model = LogisticRegression(C=best_params['C'])
 model.fit(X_train, y_train)
 
 #to check which features are important
-# coefficients = model.coef_[0]
-# feature_importance = pd.DataFrame({'Feature': features,'Coefficient': coefficients})
-# feature_importance['Absolute Coefficient'] =numpy.abs(feature_importance['Coefficient'])
-# feature_importance = feature_importance.sort_values(by='Absolute Coefficient', ascending=False)
-# print(feature_importance)
+coefficients = model.coef_[0]
+feature_importance = pd.DataFrame({'Feature': features,'Coefficient': coefficients})
+feature_importance['Absolute Coefficient'] =np.abs(feature_importance['Coefficient'])
+feature_importance = feature_importance.sort_values(by='Absolute Coefficient', ascending=False)
+print(feature_importance)
+
 joblib.dump(model, 'model.pkl')
 print('Model saved!')
 joblib.dump(scaler, 'scaler.pkl')
