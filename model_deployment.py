@@ -11,8 +11,8 @@ features = ['age', 'sex', 'cp', 'trtbps', 'chol', 'fbs', 'restecg', 'thalachh', 
 age = int(input("""1)Age cannot be negative!
                    Enter the age of the Patient:"""))
 sex = int(input("""2)Sex (2 values)
-                0: for female
-                1: for male!
+0: for female
+1: for male!
                    Enter the sex of the Patient:"""))
 cp = int(input("""3)cp: Chest Pain type (4 values)
 0: typical angina
@@ -60,7 +60,7 @@ user_input_scaled = scaler.transform(user_input)
 model = joblib.load('model.pkl')
 print('Model loaded successfully!')
 print('Predecting the output...')
-a =model.predict(user_input_scaled)
+a = model.predict(user_input_scaled)
 
 output = int(a[0])
 if output==1:
@@ -72,7 +72,7 @@ else:
 Predicted value: {output}''')
 
 cursor.execute('''INSERT INTO User(age, sex, cp, trtbps, chol, fbs, rectecg,thalachh, exng, oldpeak, slp, caa, thall, output) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)'''
-               ,(age, sex, cp, trtbps, chol, fbs, restecg, thalachh, exng, oldpeak, slp, caa, thall,output ))
+               ,(age, sex, cp, trtbps, chol, fbs, restecg, thalachh, exng, oldpeak, slp, caa, thall,output))
 conn.commit()
 print("Successfully added to the database!")
 conn.close()
