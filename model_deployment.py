@@ -1,6 +1,7 @@
 import pandas as pd
 import joblib
 import sqlite3 
+import tkinter
 
 conn = sqlite3.connect('heart.sqlite')
 cursor = conn.cursor()
@@ -76,3 +77,4 @@ cursor.execute('''INSERT INTO User(age, sex, cp, trtbps, chol, fbs, rectecg,thal
 conn.commit()
 print("Successfully added to the database!")
 conn.close()
+tkinter.ACTIVE
